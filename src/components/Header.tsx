@@ -1,7 +1,7 @@
 export const Header = () => {
     return(
         <header className="flex justify-center items-center gap-3 p-3 bg-gradient-to-tr from-[#161f25] to-[#394e63]">
-                <div className="h-20 w-20 rounded-md border-2 border-slate-600">
+                <div className="h-20 w-20 rounded-md border-2 shadow-lg border-slate-600">
                     <img src="/assets/images/Logo.png" alt="Logo" />
                 </div>
                 <div className="font-serif">
