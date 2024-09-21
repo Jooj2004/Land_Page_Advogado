@@ -2,6 +2,7 @@
 
 import { Header } from "@/components/Header"
 import { KnowMe } from "@/components/KnowMe"
+import { MyServices } from "@/components/MyServices"
 import { Slid } from "@/components/Slid"
 import { Vision } from "@/components/Vision"
 
@@ -12,7 +13,7 @@ const Page = () => {
             <Slid />
             <KnowMe />
             <Vision />
-            
+            <MyServices />
         </div>
     )
 }
