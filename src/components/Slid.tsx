@@ -25,8 +25,7 @@ export const Slid = () => {
                     <p className="px-9 text-white text-sm font-semibold">{itens[actual].body}</p>
                 </div>
             </div>
-            <div className="absolute top-0 w-full h-full bg-black opacity-40">
-                lor
+            <div className="absolute top-0 w-full h-full bg-black opacity-20">
             </div>
         </div>
     )
