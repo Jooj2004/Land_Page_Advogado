@@ -1,5 +1,6 @@
 "use client"
 
+import { Comments } from "@/components/Comments"
 import { Header } from "@/components/Header"
 import { KnowMe } from "@/components/KnowMe"
 import { MyServices } from "@/components/MyServices"
@@ -14,15 +15,12 @@ const Page = () => {
             <KnowMe />
             <Vision />
             <MyServices />
+            <Comments />
         </div>
     )
 }
 
 /*
-
-Meus Serviços
-
-Comentários
 
 Endereço 
 
