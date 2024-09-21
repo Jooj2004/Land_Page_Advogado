@@ -8,6 +8,13 @@ export const Comments = () => {
     const [comments, dispatch] = useReducer(CommentsReducer,[])
 
     const addItem = (text:string, name:string) => {
+        if(name === ''){
+            alert ("Digite seu nome!")
+            return
+        }
+        if(textInput === ''){
+            return
+        }
         dispatch({
             type: 'add',
             payload: {
@@ -37,7 +44,7 @@ export const Comments = () => {
                 onChange={(e) => (setTextInput(e.target.value))}
                 >
                 </textarea>
-                <button onClick={() => (addItem(textInput, name))} className="py-2 px-3  bg-blue-500 font-semibold rounded-lg text-white uppercase mt-2">Adicionar</button>
+                <button onClick={() => (addItem(textInput, name))} className="py-2 px-3 hover:opacity-80 active:opacity-80 bg-blue-500 font-semibold rounded-lg text-white uppercase mt-2">Adicionar</button>
             </div>
             <div>
                 <h2 className="text-white">Total de comentários: {comments.length} </h2>
