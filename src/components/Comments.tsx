@@ -4,17 +4,25 @@ import { useReducer, useState } from "react"
 export const Comments = () => {
     const [textInput, setTextInput] = useState<string>('')
     const [name, setName] = useState<string>('')
+    const [ver1, setVer1] = useState<boolean>(false)
+    const [ver2, setVer2] = useState<boolean>(false)
 
     const [comments, dispatch] = useReducer(CommentsReducer,[])
 
     const addItem = (text:string, name:string) => {
         if(name === ''){
-            alert ("Digite seu nome!")
+            setVer1(true)
+            if(textInput === ''){
+                setVer2(true)
+            } else {setVer2(false)}
             return
         }
+        setVer1(false)
         if(textInput === ''){
+            setVer2(true)
             return
         }
+        setVer2(false)
         dispatch({
             type: 'add',
             payload: {
@@ -34,16 +42,21 @@ export const Comments = () => {
                     className="rounded-md mb-2 p-2 outline-none"
                     placeholder="Digite seu nome:"
                     value={name}
-                    onChange={(e) => (setName(e.target.value))}
-                    
-                    />
-                <textarea 
+                    onChange={(e) => (setName(e.target.value))}  
+                />
+                {ver1 &&
+                    <div className="bg-slate-700 p-1 rounded-md mb-1 mx-1 text-pink-950 text-sm "> * Digite seu nome !!! </div>
+                }
+                <textarea
                 placeholder="Digite seu comentário:" 
                 className="p-2 border-2 rounded-md h-36 outline-none"
                 value={textInput}
                 onChange={(e) => (setTextInput(e.target.value))}
                 >
                 </textarea>
+                {ver2 &&
+                    <div className="bg-slate-700 p-1 rounded-md mb-1 mx-1 text-pink-950 text-sm "> * Não há comentários !!! </div>
+                }
                 <button onClick={() => (addItem(textInput, name))} className="py-2 px-3 hover:opacity-80 active:opacity-80 bg-blue-500 font-semibold rounded-lg text-white uppercase mt-2">Adicionar</button>
             </div>
             <div>
