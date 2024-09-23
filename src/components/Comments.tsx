@@ -36,7 +36,7 @@ export const Comments = () => {
 
     return (
         <div className="p-2 bg-[#161f25]">
-            <div className="flex flex-col p-5 rounded-md">
+            <div className="flex flex-col max-w-5xl mx-auto p-5 rounded-md">
                 <input 
                     type="text" 
                     className="rounded-md mb-2 p-2 outline-none"
