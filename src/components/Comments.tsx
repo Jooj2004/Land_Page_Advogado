@@ -1,13 +1,22 @@
 import { CommentsReducer } from "@/reducer/CommentsReducer"
-import { useReducer, useState } from "react"
+import { useEffect, useReducer, useState } from "react"
 
 export const Comments = () => {
+    let STORAGE_KEY = 'comentarios'
+
     const [textInput, setTextInput] = useState<string>('')
     const [name, setName] = useState<string>('')
     const [ver1, setVer1] = useState<boolean>(false)
     const [ver2, setVer2] = useState<boolean>(false)
 
-    const [comments, dispatch] = useReducer(CommentsReducer,[])
+    const [comments, dispatch] = useReducer(
+        CommentsReducer,
+        JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
+    )
+
+    useEffect(()=>{
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(comments))
+    }, [comments])
 
     const addItem = (text:string, name:string) => {
         if(name === ''){
@@ -40,7 +49,7 @@ export const Comments = () => {
                 <input 
                     type="text" 
                     className="rounded-md mb-2 p-2 outline-none"
-                    placeholder="Digite seu nome:"
+                    placeholder="Digite seu nickname:"
                     value={name}
                     onChange={(e) => (setName(e.target.value))}  
                 />
